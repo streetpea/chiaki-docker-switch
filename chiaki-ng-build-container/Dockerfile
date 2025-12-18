@@ -1,5 +1,5 @@
 #https://github.com/devkitPro/pacman/releases
-FROM docker.io/archlinux/archlinux:base-20241110.0.278291
+FROM docker.io/archlinux/archlinux:base
 
 ENV DEVKITPRO=/opt/devkitpro
 ENV DEVKITARM=/opt/devkitpro/devkitARM

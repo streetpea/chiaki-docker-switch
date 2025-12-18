@@ -26,5 +26,7 @@ jobs:
         run: sudo apt-get install -y podman
       - name: 'Build chiaki-ng build image'
         run: |
-          podman build "$@" --tag ghcr.io/xlanor/chiaki-build-switch:${{ steps.get_version.outputs.VERSION }} .
-          podman push ghcr.io/xlanor/chiaki-build-switch:${{ steps.get_version.outputs.VERSION }}
+          podman build -f chiaki-ng-build-container/Dockerfile -t docker.io/streetpea/chiaki-build-switch:${{ steps.get_version.outputs.VERSION }} .
+          podman push docker.io/streetpea/chiaki-build-switch:${{ steps.get_version.outputs.VERSION }}
+          podman tag docker.io/streetpea/chiaki-build-switch:${{ steps.get_version.outputs.VERSION }} docker.io/streetpea/chiaki-build-switch:latest
+          podman push docker.io/streetpea/chiaki-build-switch:latest
